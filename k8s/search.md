@@ -5,6 +5,8 @@
 - https://hellokube.dev/posts/configure-minikube-ingress-on-wsl2/    (not sure whether should be applied to my env)
 	https://stackoverflow.com/questions/58561682/minikube-with-ingress-example-not-working  
 
+- minikube addons enable ingress
+- minikube kubectl -- apply -f ./basic.yaml 
 - minikube service bootcamp --url  
 - minikube tunnel  
 	
