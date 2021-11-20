@@ -48,10 +48,7 @@ const config: Configuration = {
       name: "manifest",
     },
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin(), new ForkTsCheckerWebpackPlugin()],
 };
 
 export default config;
