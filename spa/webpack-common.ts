@@ -1,4 +1,4 @@
-import { Configuration } from "webpack";
+import { Configuration, WatchIgnorePlugin } from "webpack";
 import path from "path";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -41,6 +41,19 @@ const config: Configuration = {
           },
         ],
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          "style-loader",
+          "css-loader",
+          "less-loader",
+        ],
+      },
     ],
   },
   optimization: {
@@ -48,7 +61,11 @@ const config: Configuration = {
       name: "manifest",
     },
   },
-  plugins: [new CleanWebpackPlugin(), new ForkTsCheckerWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new WatchIgnorePlugin({ paths: [/css\.d\.ts$/, /less\.d\.ts$/] }),
+  ],
 };
 
 export default config;
