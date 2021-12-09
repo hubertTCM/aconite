@@ -1,14 +1,15 @@
 import React from "react";
 
 import { Layout, Menu } from "antd";
-import "antd/dist/antd.css";
+
+import * as styles from "./app.less";
 
 const { Header, Footer, Sider, Content } = Layout;
 export const App = () => {
   return (
-    <Layout className="site-layout-background">
+    <Layout className={styles.root}>
       <Sider>
-        <Menu style={{ height: "100%" }}>
+        <Menu>
           <Menu.Item>Menu 1</Menu.Item>
         </Menu>
       </Sider>

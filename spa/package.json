@@ -27,7 +27,7 @@
     "eslint": "^8.2.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "fork-ts-checker-webpack-plugin": "^6.4.0",
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
@@ -44,11 +44,13 @@
     "webpack": "^5.64.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.5.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "yarn-deduplicate": "^3.1.0"
   },
   "scripts": {
     "start": "type & webpack-dev-server --open --config webpack-dev.ts",
-    "type": "tlm src -w"
+    "type": "tlm src -w",
+    "deduplicate": "yarn-deduplicate"
   },
   "dependencies": {}
 }
