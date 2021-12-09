@@ -43,15 +43,34 @@ const config: Configuration = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+          },
+        ],
       },
       {
         test: /\.less$/i,
         use: [
           // compiles Less to CSS
-          "style-loader",
-          "css-loader",
-          "less-loader",
+          {
+            loader: "style-loader", // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                logLevel: 2,
+              },
+            },
+          },
         ],
       },
     ],

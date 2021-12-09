@@ -2,7 +2,7 @@ import React from "react";
 
 import { Layout, Menu } from "antd";
 
-import * as styles from "./app.less";
+import styles from "./app.less";
 
 const { Header, Footer, Sider, Content } = Layout;
 export const App = () => {
