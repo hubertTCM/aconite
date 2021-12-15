@@ -2,12 +2,12 @@ import React from "react";
 
 import { Layout, Menu } from "antd";
 
-import styles from "./app.less";
+import { GuessNumber } from "@src/components/guess-number";
 
 const { Header, Footer, Sider, Content } = Layout;
 export const App = () => {
   return (
-    <Layout className={styles.root}>
+    <Layout>
       <Sider>
         <Menu>
           <Menu.Item>Menu 1</Menu.Item>
@@ -15,7 +15,9 @@ export const App = () => {
       </Sider>
       <Layout>
         <Header>Header</Header>
-        <Content>Content</Content>
+        <Content>
+          <GuessNumber />
+        </Content>
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
