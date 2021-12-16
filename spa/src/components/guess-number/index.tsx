@@ -10,12 +10,17 @@ export const GuessNumber = () => {
     setState({ ...stateGuess });
   };
 
+  const win = () => {};
+  const lose = () => {};
+
   return (
     <div>
       {state.state === "configure" && (
         <Configure switchToGuess={toGuess}></Configure>
       )}
-      {state.state === "guessing" && <Guess {...state}></Guess>}
+      {state.state === "guessing" && (
+        <Guess win={win} lose={lose} {...state}></Guess>
+      )}
     </div>
   );
 };
