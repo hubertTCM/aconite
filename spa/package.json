@@ -50,7 +50,7 @@
   },
   "scripts": {
     "start": "type & webpack-dev-server --open --config webpack-dev.ts",
-    "type": "tlm src -w",
+    "type": "tlm src --nameFormat none --exportType default -w",
     "deduplicate": "yarn-deduplicate"
   },
   "dependencies": {}

@@ -4,6 +4,8 @@ import { Layout, Menu } from "antd";
 
 import { GuessNumber } from "@src/components/guess-number";
 
+// less export type: https://www.npmjs.com/package/typed-less-modules
+// https://github.com/webpack-contrib/css-loader#auto
 const { Header, Footer, Sider, Content } = Layout;
 export const App = () => {
   return (
