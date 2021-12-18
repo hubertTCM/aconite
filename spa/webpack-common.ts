@@ -56,6 +56,7 @@ const config: Configuration = {
             loader: "css-loader",
             options: {
               modules: true,
+              sourceMap: true,
             },
           },
           {
@@ -63,6 +64,7 @@ const config: Configuration = {
             options: {
               lessOptions: {
                 logLevel: 2,
+                sourceMap: true,
               },
             },
           },
