@@ -21,6 +21,7 @@
     "antd": "^4.17.2",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
+    "clsx": "^1.1.1",
     "core-js": "^3.19.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",

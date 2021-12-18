@@ -43,12 +43,7 @@ const config: Configuration = {
       },
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-          },
-        ],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.less$/i,
