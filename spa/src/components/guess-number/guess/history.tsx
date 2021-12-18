@@ -24,11 +24,11 @@ export const History = (props: { values: GuessValue[] }) => {
   const dataSource = values.map((item) => {
     return { ...item, key: item.value };
   });
-  return (
+  return dataSource.length ? (
     <Table
       columns={columns}
       dataSource={dataSource}
       pagination={{ pageSize: 10 }}
     ></Table>
-  );
+  ) : null;
 };

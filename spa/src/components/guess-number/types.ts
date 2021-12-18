@@ -1,6 +1,10 @@
 export type StateConfigure = {
   state: "configure";
 };
+export type NumberRange = {
+  min: number;
+  max: number;
+};
 export type StateGuess = {
   state: "guessing";
   data: { min: number; max: number; expect: number };
