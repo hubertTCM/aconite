@@ -22,6 +22,7 @@
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "clsx": "^1.1.1",
+    "concurrently": "^6.5.1",
     "core-js": "^3.19.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
@@ -49,7 +50,7 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "scripts": {
-    "start": "type & webpack-dev-server --open --config webpack-dev.ts",
+    "start": "concurrently \"yarn type\" \"yarn webpack-dev-server --open --config webpack-dev.ts\"",
     "type": "tlm src --nameFormat none --exportType default -w",
     "deduplicate": "yarn-deduplicate"
   },
