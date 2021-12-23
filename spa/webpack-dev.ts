@@ -1,3 +1,4 @@
+import path from 'path'
 import merge from "webpack-merge";
 import { Configuration, DefinePlugin } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
@@ -10,6 +11,10 @@ import common from "./webpack-common";
 const devServer: DevServerConfiguration = {
   hot: true,
   port: 3030,
+  static: { 
+    directory: path.resolve(__dirname, './assets'), 
+    publicPath: '/assets'
+  },
   historyApiFallback: {
     rewrites: [{ from: /./, to: "/index.html" }],
   },

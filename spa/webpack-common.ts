@@ -21,6 +21,10 @@ const config: Configuration = {
   module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.tsx?$/,
         include: /src/,
         use: {
