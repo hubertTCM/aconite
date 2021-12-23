@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, InputNumber, Table } from "antd";
+import { Alert, Button, InputNumber } from "antd";
 import { StateGuess, NumberRange } from "../types";
 import { History, GuessValue } from "./history";
 import { Indicator } from "./indicator";
@@ -20,6 +20,7 @@ export const Guess = (props: GuessProps) => {
   const [btnEnabled, setBtnEnabled] = useState(false);
   const [historyValues, setHistoryValues] = useState<GuessValue[]>([]);
   const [activeRange, setActiveRange] = useState<NumberRange>({ min, max });
+  const [message, setMessage] = useState<string | undefined>();
   const changeNumber = (toValue: number) => {
     setUserInput(toValue);
     setBtnEnabled(toValue !== undefined && toValue !== null);
@@ -38,6 +39,7 @@ export const Guess = (props: GuessProps) => {
         { type: "tooSmall", value: userInput },
       ]);
       setActiveRange({ ...activeRange, min: Math.max(userInput + 1, min) });
+      setMessage("Your guess is too low!");
       return;
     }
     if (userInput > expect) {
@@ -46,6 +48,7 @@ export const Guess = (props: GuessProps) => {
         { type: "tooLarge", value: userInput },
       ]);
       setActiveRange({ ...activeRange, max: Math.min(userInput - 1, max) });
+      setMessage("Your guess is too high!");
       return;
     }
   };
@@ -64,6 +67,10 @@ export const Guess = (props: GuessProps) => {
       <Button type="primary" onClick={guess} disabled={!btnEnabled}>
         Guess
       </Button>
+      <Button danger={true} onClick={lose}>
+        Give Up
+      </Button>
+      {message && message.length && <Alert message={message} type="error" />}
       {showHints && <History values={historyValues} />}
     </div>
   );

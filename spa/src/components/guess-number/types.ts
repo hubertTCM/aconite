@@ -20,3 +20,5 @@ export type StateLose = {
 export type State = StateConfigure | StateGuess | StateWin | StateLose;
 
 export type ToGuessState = (state: StateGuess) => void;
+
+export type ToConfigureState = () => void;
