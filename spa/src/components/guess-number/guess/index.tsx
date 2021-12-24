@@ -4,6 +4,8 @@ import { StateGuess, NumberRange } from "../types";
 import { History, GuessValue } from "./history";
 import { Indicator } from "./indicator";
 
+import styles from "./index.less";
+
 export type GuessProps = StateGuess & {
   win: () => void;
   lose: () => void;
@@ -53,23 +55,25 @@ export const Guess = (props: GuessProps) => {
     }
   };
   return (
-    <div>
+    <div className={styles.container}>
       {showHints && (
         <Indicator activeRange={activeRange} totalRange={{ min, max }} />
       )}
       <InputNumber
-        size="large"
+        className={styles.number}
         controls={false}
         value={userInput}
         onChange={changeNumber}
         onPressEnter={guess}
-      ></InputNumber>
-      <Button type="primary" onClick={guess} disabled={!btnEnabled}>
-        Guess
-      </Button>
-      <Button danger={true} onClick={lose}>
-        Give Up
-      </Button>
+      />
+      <div className={styles.actions}>
+        <Button type="primary" onClick={guess} disabled={!btnEnabled}>
+          Guess
+        </Button>
+        <Button type="primary" danger={true} onClick={lose}>
+          Give Up
+        </Button>
+      </div>
       {message && message.length && <Alert message={message} type="error" />}
       {showHints && <History values={historyValues} />}
     </div>

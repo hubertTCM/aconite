@@ -37,7 +37,7 @@ export const Configure = (props: ConfigureProps) => {
         <Image src={"../../assets/image/guess-number.png"} preview={false} />
       </div>
       <Button type="primary" onClick={easy}>
-        Easy 1-10
+        1-10
       </Button>
       <Button type="primary" onClick={medium}>
         1-100
