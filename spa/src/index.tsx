@@ -1,8 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
-const App = () => {
-  return <h1>Hello, world!</h1>;
-};
+
+import { App } from "./app";
+
+import "antd/dist/antd.css";
+
 try {
   render(<App />, document.getElementById("app"));
 } catch (err) {
