@@ -17,10 +17,14 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start-react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+
+    "start": "concurrently \"yarn type\" \"yarn start-react\"",
+    "type": "tcm -p 'src/**/*.module.css' --nameFormat none --exportType default -w",
+    "deduplicate": "yarn-deduplicate"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +45,9 @@
     ]
   },
   "devDependencies": {
-    "antd": "^4.17.4"
+    "antd": "^4.17.4",
+    "concurrently": "^6.5.1",
+    "typed-css-modules": "^0.7.0",
+    "yarn-deduplicate": "^3.1.0"
   }
 }

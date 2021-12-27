@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { Layout, Menu } from "antd";
+
+import { GuessNumber } from "./components/guess-number";
+
+// less export type: https://www.npmjs.com/package/typed-less-modules
+// https://github.com/webpack-contrib/css-loader#auto
+const { Header, Footer, Sider, Content } = Layout;
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Sider>
+        <Menu>
+          <Menu.Item>Menu 1</Menu.Item>
+        </Menu>
+      </Sider>
+      <Layout>
+        <Header>Header</Header>
+        <Content>
+          <GuessNumber />
+        </Content>
+        <Footer>Footer</Footer>
+      </Layout>
+    </Layout>
   );
-}
-
-export default App;
+};
