@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Image } from "antd";
 
+import guessNumberImage from "./guess-number.png";
 import { ToGuessState } from "../types";
 
 export type ConfigureProps = {
@@ -34,7 +35,7 @@ export const Configure = (props: ConfigureProps) => {
   return (
     <div>
       <div>
-        <Image src={"../../assets/image/guess-number.png"} preview={false} />
+        <Image src={guessNumberImage} preview={false} />
       </div>
       <Button type="primary" onClick={easy}>
         1-10
