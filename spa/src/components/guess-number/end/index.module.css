@@ -4,3 +4,7 @@
   align-content: space-between;
   row-gap: 10px;
 }
+
+.action {
+  float: right;
+}

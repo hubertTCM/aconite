@@ -14,7 +14,7 @@ const End = (props: { children: React.ReactNode } & EndProps) => {
     <div className={styles.root}>
       {children}
       <div>
-        <Button type="primary" onClick={restart}>
+        <Button className={styles.action} type="primary" onClick={restart}>
           Start new game
         </Button>
       </div>
