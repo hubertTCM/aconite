@@ -1,0 +1,8 @@
+.actions {
+  float: right;
+}
+
+.actions > *:not(:last-child) {
+  display: inline-block;
+  margin-right: 5px;
+}
