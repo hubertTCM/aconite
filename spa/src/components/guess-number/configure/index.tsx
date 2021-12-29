@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Image } from "antd";
 
+import styles from "./index.module.css";
 import guessNumberImage from "./guess-number.png";
 import { ToGuessState } from "../types";
 
@@ -37,21 +38,23 @@ export const Configure = (props: ConfigureProps) => {
       <div>
         <Image src={guessNumberImage} preview={false} />
       </div>
-      <Button type="primary" onClick={easy}>
-        1-10
-      </Button>
-      <Button type="primary" onClick={medium}>
-        1-100
-      </Button>
-      <Button type="primary" onClick={hard}>
-        1-1000
-      </Button>
-      <Checkbox
-        checked={showHints}
-        onChange={(e) => setShowHints(e.target.checked)}
-      >
-        show Hint
-      </Checkbox>
+      <div className={styles.actions}>
+        <Button type="primary" onClick={easy}>
+          1-10
+        </Button>
+        <Button type="primary" onClick={medium}>
+          1-100
+        </Button>
+        <Button type="primary" onClick={hard}>
+          1-1000
+        </Button>
+        <Checkbox
+          checked={showHints}
+          onChange={(e) => setShowHints(e.target.checked)}
+        >
+          show Hint
+        </Checkbox>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React from "react";
 import { Alert, Button } from "antd";
+
+import styles from "./index.module.css";
 import { ToConfigureState } from "../types";
 
 export type EndProps = {
@@ -9,11 +11,13 @@ export type EndProps = {
 const End = (props: { children: React.ReactNode } & EndProps) => {
   const { children, restart } = props;
   return (
-    <div>
+    <div className={styles.root}>
       {children}
-      <Button type="primary" onClick={restart}>
-        Start new game
-      </Button>
+      <div>
+        <Button type="primary" onClick={restart}>
+          Start new game
+        </Button>
+      </div>
     </div>
   );
 };

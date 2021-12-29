@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import styles from "./index.module.css";
 import { State, StateGuess, ToConfigureState, ToGuessState } from "./types";
 import { Configure } from "./configure";
 import { Guess } from "./guess";
@@ -23,7 +24,7 @@ export const GuessNumber = () => {
   };
 
   return (
-    <div>
+    <div className={styles.root}>
       {state.state === "configure" && (
         <Configure switchToGuess={toGuess}></Configure>
       )}
