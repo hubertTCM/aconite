@@ -21,7 +21,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
     "start": "concurrently \"yarn type\" \"yarn start-react\"",
     "type": "tcm -p 'src/**/*.module.css' --nameFormat none --exportType default -w",
     "deduplicate": "yarn-deduplicate"
@@ -47,6 +46,8 @@
   "devDependencies": {
     "antd": "^4.17.4",
     "concurrently": "^6.5.1",
+    "i18next": "^21.6.4",
+    "react-i18next": "^11.15.2",
     "typed-css-modules": "^0.7.0",
     "yarn-deduplicate": "^3.1.0"
   }
