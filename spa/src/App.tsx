@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
 import { Layout, Menu, Radio, RadioChangeEvent } from "antd";
-import i18next, { i18n } from "i18next";
+import i18next from "i18next";
 import moment from "moment";
 
 import { GuessNumber } from "./components/guess-number";
+
+import styles from "./app.module.css";
 
 // antd i18n: https://ant.design/components/config-provider/
 const { Header, Footer, Sider, Content } = Layout;
@@ -31,14 +33,16 @@ export const App = () => {
       </Sider>
       <Layout>
         <Header>
-          <Radio.Group value={language} onChange={changeLocal}>
-            <Radio.Button key="en" value="en">
-              English
-            </Radio.Button>
-            <Radio.Button key="cn" value="zh-cn">
-              中文
-            </Radio.Button>
-          </Radio.Group>
+          <div className={styles["language-radio-group"]}>
+            <Radio.Group value={language} onChange={changeLocal}>
+              <Radio.Button key="en" value="en">
+                English
+              </Radio.Button>
+              <Radio.Button key="cn" value="zh-cn">
+                中文
+              </Radio.Button>
+            </Radio.Group>
+          </div>
         </Header>
         <Content>
           <GuessNumber />
