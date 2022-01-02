@@ -1,8 +1,10 @@
 import React from "react";
 import { Alert, Button } from "antd";
+import { useTranslation } from "react-i18next";
+
+import { ToConfigureState } from "../types";
 
 import styles from "./index.module.css";
-import { ToConfigureState } from "../types";
 
 export type EndProps = {
   restart: ToConfigureState;
@@ -10,12 +12,13 @@ export type EndProps = {
 
 const End = (props: { children: React.ReactNode } & EndProps) => {
   const { children, restart } = props;
+  const { t } = useTranslation();
   return (
     <div className={styles.root}>
       {children}
       <div>
         <Button className={styles.action} type="primary" onClick={restart}>
-          Start new game
+          {t("guessNumber.startNewGame", { ns: "common" })}
         </Button>
       </div>
     </div>
@@ -23,7 +26,8 @@ const End = (props: { children: React.ReactNode } & EndProps) => {
 };
 
 export const Win = (props: EndProps) => {
-  const text = "Congratulations! You got it right!";
+  const { t } = useTranslation();
+  const text = t("guessNumber.messageWin", { ns: "common" });
   return (
     <End {...props}>
       <Alert message={text} type="success" />
@@ -32,7 +36,8 @@ export const Win = (props: EndProps) => {
 };
 
 export const Lose = (props: EndProps) => {
-  const text = "GAME OVER";
+  const { t } = useTranslation();
+  const text = t("guessNumber.messageGameOver", { ns: "common" });
   return (
     <End {...props}>
       <Alert message={text} type="error" />

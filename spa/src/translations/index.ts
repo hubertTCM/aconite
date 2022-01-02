@@ -19,6 +19,7 @@ export const initTranslation = () => {
           common: cnCommon,
         },
       },
+      ns: ["common"],
       lng: "en", // if you're using a language detector, do not define the lng option
       supportedLngs: ["en", "cn"],
       fallbackLng: "en",

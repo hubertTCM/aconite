@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Image } from "antd";
 
+import { useTranslation } from "react-i18next";
+
+import { ToGuessState } from "../types";
+
 import styles from "./index.module.css";
 import guessNumberImage from "./guess-number.png";
-import { ToGuessState } from "../types";
 
 export type ConfigureProps = {
   switchToGuess: ToGuessState;
@@ -16,6 +19,7 @@ function getRandomIntInclusive(min: number, max: number) {
 }
 
 export const Configure = (props: ConfigureProps) => {
+  const { t } = useTranslation();
   const [showHints, setShowHints] = useState<boolean>(true);
   const { switchToGuess } = props;
 
@@ -52,7 +56,7 @@ export const Configure = (props: ConfigureProps) => {
           checked={showHints}
           onChange={(e) => setShowHints(e.target.checked)}
         >
-          show Hint
+          {t("guessNumber.showHint", { ns: "common" })}
         </Checkbox>
       </div>
     </div>
