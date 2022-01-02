@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Radio, RadioChangeEvent } from "antd";
+import i18next, { i18n } from "i18next";
+import moment from "moment";
 
 import { GuessNumber } from "./components/guess-number";
 
-// less export type: https://www.npmjs.com/package/typed-less-modules
-// https://github.com/webpack-contrib/css-loader#auto
+// antd i18n: https://ant.design/components/config-provider/
 const { Header, Footer, Sider, Content } = Layout;
+type Language = "en" | "zh-cn";
 export const App = () => {
+  const [language, setLanguage] = useState<Language>("en");
+  const changeLocal = (e: RadioChangeEvent) => {
+    const selectedLanaguage = (e.target.value as Language) || "en";
+    if (selectedLanaguage === "en") {
+      moment.locale("en");
+      i18next.changeLanguage("en");
+    } else {
+      moment.locale("zh-cn");
+      i18next.changeLanguage("cn");
+    }
+    setLanguage(selectedLanaguage);
+  };
   return (
     <Layout>
       <Sider>
@@ -16,7 +30,16 @@ export const App = () => {
         </Menu>
       </Sider>
       <Layout>
-        <Header>Header</Header>
+        <Header>
+          <Radio.Group value={language} onChange={changeLocal}>
+            <Radio.Button key="en" value="en">
+              English
+            </Radio.Button>
+            <Radio.Button key="cn" value="zh-cn">
+              中文
+            </Radio.Button>
+          </Radio.Group>
+        </Header>
         <Content>
           <GuessNumber />
         </Content>
