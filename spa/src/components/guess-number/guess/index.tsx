@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Alert, Button, InputNumber } from "antd";
+import { useTranslation } from "react-i18next";
+
 import { StateGuess, NumberRange } from "../types";
+
 import { History, GuessValue } from "./history";
 import { Indicator } from "./indicator";
-
 import styles from "./index.module.css";
 
 export type GuessProps = StateGuess & {
@@ -18,6 +20,7 @@ export const Guess = (props: GuessProps) => {
     win,
     lose,
   } = props;
+  const { t } = useTranslation();
   const [userInput, setUserInput] = useState<number | undefined>();
   const [btnEnabled, setBtnEnabled] = useState(false);
   const [historyValues, setHistoryValues] = useState<GuessValue[]>([]);
@@ -41,7 +44,7 @@ export const Guess = (props: GuessProps) => {
         { type: "tooSmall", value: userInput },
       ]);
       setActiveRange({ ...activeRange, min: Math.max(userInput + 1, min) });
-      setMessage("Your guess is too low!");
+      setMessage(t("guessNumber.messageTooLow", { ns: "common" }));
       return;
     }
     if (userInput > expect) {
@@ -50,7 +53,7 @@ export const Guess = (props: GuessProps) => {
         { type: "tooLarge", value: userInput },
       ]);
       setActiveRange({ ...activeRange, max: Math.min(userInput - 1, max) });
-      setMessage("Your guess is too high!");
+      setMessage(t("guessNumber.messageTooHigh", { ns: "common" }));
       return;
     }
   };
@@ -69,10 +72,10 @@ export const Guess = (props: GuessProps) => {
       <div>
         <div className={styles.actions}>
           <Button type="primary" onClick={guess} disabled={!btnEnabled}>
-            Guess
+            {t("guessNumber.guess", { ns: "common" })}
           </Button>
           <Button type="primary" danger={true} onClick={lose}>
-            Give Up
+            {t("guessNumber.giveUp", { ns: "common" })}
           </Button>
         </div>
       </div>

@@ -1,0 +1,14 @@
+{
+    "guessNumber": {
+        "showHint" : "Show Hint",
+        "lowGuesses": "Low Guesses",
+        "highGuesses": "High Guesses",
+        "guess": "Guess",
+        "giveUp": "Give Up",
+        "messageTooLow": "Your guess is too low!",
+        "messageTooHigh": "Your guess is too high!",
+        "messageWin": "Congratulations! You got it right!",
+        "messageGameOver": "GAME OVER",
+        "startNewGame": "Start new game"
+    }
+}
