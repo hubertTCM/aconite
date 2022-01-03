@@ -25,7 +25,7 @@ export const Guess = (props: GuessProps) => {
   const [btnEnabled, setBtnEnabled] = useState(false);
   const [historyValues, setHistoryValues] = useState<GuessValue[]>([]);
   const [activeRange, setActiveRange] = useState<NumberRange>({ min, max });
-  const [message, setMessage] = useState<string | undefined>();
+  const [messageKey, setMessageKey] = useState<string | undefined>();
   const changeNumber = (toValue: number) => {
     setUserInput(toValue);
     setBtnEnabled(toValue !== undefined && toValue !== null);
@@ -38,13 +38,14 @@ export const Guess = (props: GuessProps) => {
       win();
       return;
     }
+
     if (userInput < expect) {
       setHistoryValues([
         ...historyValues,
         { type: "tooSmall", value: userInput },
       ]);
       setActiveRange({ ...activeRange, min: Math.max(userInput + 1, min) });
-      setMessage(t("guessNumber.messageTooLow", { ns: "common" }));
+      setMessageKey("guessNumber.messageTooLow");
       return;
     }
     if (userInput > expect) {
@@ -53,7 +54,7 @@ export const Guess = (props: GuessProps) => {
         { type: "tooLarge", value: userInput },
       ]);
       setActiveRange({ ...activeRange, max: Math.min(userInput - 1, max) });
-      setMessage(t("guessNumber.messageTooHigh", { ns: "common" }));
+      setMessageKey("guessNumber.messageTooHigh");
       return;
     }
   };
@@ -79,7 +80,9 @@ export const Guess = (props: GuessProps) => {
           </Button>
         </div>
       </div>
-      {message && message.length && <Alert message={message} type="error" />}
+      {messageKey && messageKey.length && (
+        <Alert message={t(messageKey, { ns: "common" })} type="error" />
+      )}
       {showHints && <History values={historyValues} />}
     </div>
   );
