@@ -10,5 +10,9 @@
         "messageWin": "Congratulations! You got it right!",
         "messageGameOver": "GAME OVER",
         "startNewGame": "Start new game"
+    },
+    "menu" : {
+        "dashboard": "Dashboard",
+        "guessNumber": "Guess Number"
     }
 }
