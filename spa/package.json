@@ -48,6 +48,7 @@
     "concurrently": "^7.2.1",
     "i18next": "^21.8.5",
     "react-i18next": "^11.16.9",
+    "react-router-dom": "^6.3.0",
     "typed-css-modules": "^0.7.2",
     "yarn-deduplicate": "^5.0.0"
   }
