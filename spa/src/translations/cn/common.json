@@ -3,12 +3,16 @@
         "showHint" : "显示提示",
         "lowGuesses": "太小了",
         "highGuesses": "太大了",
-        "guess": "你猜",
+        "guess": "我猜",
         "giveUp": "放弃",
         "messageTooLow": "呃， 你猜的数字太小了",
         "messageTooHigh": "呃， 你猜的数字太大了",
         "messageWin": "恭喜你，答对了！",
         "messageGameOver": "游戏结束",
         "startNewGame": "重新开始"
+    },
+    "menu" : {
+        "dashboard": "首页",
+        "guessNumber": "猜数字"
     }
 }

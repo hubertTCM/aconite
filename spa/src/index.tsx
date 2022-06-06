@@ -1,15 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { initTranslation } from "./translations";
+import { GuessNumber } from "./components/guess-number";
 
 initTranslation();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="guess-number" element={<GuessNumber />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("app")
 );
