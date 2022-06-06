@@ -7,6 +7,7 @@ import moment from "moment";
 import { GuessNumber } from "./components/guess-number";
 
 import styles from "./app.module.css";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 // antd i18n: https://ant.design/components/config-provider/
 const { Header, Footer, Sider, Content } = Layout;
@@ -28,7 +29,9 @@ export const App = () => {
     <Layout>
       <Sider>
         <Menu>
-          <Menu.Item>Menu 1</Menu.Item>
+          <Menu.Item>
+            <Link to="/guess-number">Guess Number</Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
@@ -45,7 +48,7 @@ export const App = () => {
           </div>
         </Header>
         <Content>
-          <GuessNumber />
+          <Outlet />
         </Content>
         <Footer>Footer</Footer>
       </Layout>
