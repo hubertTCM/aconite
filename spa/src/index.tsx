@@ -6,6 +6,7 @@ import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { initTranslation } from "./translations";
 import { GuessNumber } from "./components/guess-number";
+import { Fraction } from "./components/fraction";
 
 initTranslation();
 
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="guess-number" element={<GuessNumber />} />
+          <Route path="fraction" element={<Fraction />} />
         </Route>
       </Routes>
     </BrowserRouter>

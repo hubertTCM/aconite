@@ -1,5 +1,5 @@
 // numerator / denomiator
-export type Fraction = {
+export type FractionValue = {
     numerator: bigint;
     denominator: bigint;
 }
