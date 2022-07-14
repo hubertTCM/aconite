@@ -7,6 +7,6 @@ type FractionProps = React.CanvasHTMLAttributes<{}> & {
 };
 export const Fraction = (props: FractionProps) => {
   const { width = 600, height = 600 } = props;
-  const value: FractionValue = { numerator: BigInt(3), denominator: BigInt(8) };
+  const value: FractionValue = { numerator: BigInt(3), denominator: BigInt(5) };
   return <Pie value={value} width={Number(width)} height={Number(height)} />;
 };

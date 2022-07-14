@@ -12,8 +12,12 @@ export const Pie = (props: PieProps) => {
   const { value, height, width } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    const ctx = canvasRef.current?.getContext("2d");
+    if (!canvasRef.current) {
+      return;
+    }
+    const ctx = canvasRef.current.getContext("2d");
     if (ctx) {
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       ctx.beginPath();
       const center = { x: width / 2, y: height / 2 };
       const radius = Math.min(width, height) / 3;
@@ -22,11 +26,12 @@ export const Pie = (props: PieProps) => {
       ctx.stroke();
 
       const { numerator, denominator } = value;
-      const angle = (2 * Math.PI) / Number(denominator);
+      const alpha = (2 * Math.PI) / Number(denominator);
       for (var i = 0; i < value.denominator; i++) {
         ctx.moveTo(center.x, center.y);
-        const toX = radius * Math.cos(i * angle) + center.x;
-        const toY = radius * Math.sin(i * angle) + center.y;
+        const angle = i * alpha + (Math.PI * 3) / 2;
+        const toX = radius * Math.cos(angle) + center.x;
+        const toY = radius * Math.sin(angle) + center.y;
         ctx.lineTo(toX, toY);
         ctx.stroke();
       }
