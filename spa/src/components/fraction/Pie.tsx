@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Arc } from "./shapes/arc";
+import { Line } from "./shapes/line";
+import { Point } from "./shapes/type";
 
 import { FractionValue } from "./type";
 
@@ -19,21 +22,20 @@ export const Pie = (props: PieProps) => {
     if (ctx) {
       ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       ctx.beginPath();
-      const center = { x: width / 2, y: height / 2 };
-      const radius = Math.min(width, height) / 3;
-      ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
       ctx.strokeStyle = "black";
-      ctx.stroke();
+      const center: Point = { x: width / 2, y: height / 2 };
+      const radius: number = Math.min(width, height) / 3;
+      const circle = new Arc({ center, radius });
+      circle.draw(ctx);
 
       const { numerator, denominator } = value;
       const alpha = (2 * Math.PI) / Number(denominator);
       for (var i = 0; i < value.denominator; i++) {
-        ctx.moveTo(center.x, center.y);
         const angle = i * alpha + (Math.PI * 3) / 2;
         const toX = radius * Math.cos(angle) + center.x;
         const toY = radius * Math.sin(angle) + center.y;
-        ctx.lineTo(toX, toY);
-        ctx.stroke();
+        const line = new Line({ start: center, end: { x: toX, y: toY } });
+        line.draw(ctx);
       }
     }
   }, [canvasRef]);
