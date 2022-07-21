@@ -32,6 +32,9 @@ export const App = () => {
           <Menu.Item>
             <Link to="/guess-number">Guess Number</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/fraction">Fraction</Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
